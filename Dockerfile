@@ -1,7 +1,11 @@
 from ubuntu:18.04
 
+# Install ppa for updated version of tesseract-ocr
+run apt-get update && apt-get install -y software-properties-common
+
 # Install prerequisites
-run apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
+run add-apt-repository ppa:alex-p/tesseract-ocr && \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y \
     build-essential \
     cmake \
     curl \
